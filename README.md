@@ -7,6 +7,10 @@ This is designed to wrap the [Ghost admin api endpoint](https://ghost.org/docs/a
 You can set up a local Ghost instance by following the instructions [here](https://ghost.org/docs/install/local/)
 
 
+## Contributing
+
+Clone the repo locally. Checkout to a new branch and open a PR!
+
 ## Next Steps
 
 1. Create automated testing via Github actions
@@ -14,4 +18,3 @@ You can set up a local Ghost instance by following the instructions [here](https
 1. Allow for token-generation and establishing a session (token-based session)
 1. Use session object to create a post
 
-test again
