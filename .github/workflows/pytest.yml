@@ -17,7 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
         export POETRY_HOME=/opt/poetry
-        python3 install-poetry.py --version 1.8.3
+        curl -sSL https://install.python-poetry.org | POETRY_HOME=$POETRY_HOME python3 - --version 1.8.3
         $POETRY_HOME/bin/poetry install
     - name: Run tests
       run: |
