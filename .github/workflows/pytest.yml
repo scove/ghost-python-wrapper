@@ -1,0 +1,25 @@
+name: Pytest
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        export POETRY_HOME=/opt/poetry
+        curl -sSL https://install.python-poetry.org | POETRY_HOME=$POETRY_HOME python3 - --version 1.8.3
+        $POETRY_HOME/bin/poetry install
+    - name: Run tests
+      run: |
+        export POETRY_HOME=/opt/poetry
+        $POETRY_HOME/bin/poetry run pytest tests/*.py
