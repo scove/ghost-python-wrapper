@@ -13,5 +13,3 @@ You can set up a local Ghost instance by following the instructions [here](https
 1. Allow for basic authentication to establish a session
 1. Allow for token-generation and establishing a session (token-based session)
 1. Use session object to create a post
-
-test
