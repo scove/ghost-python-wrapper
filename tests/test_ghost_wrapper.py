@@ -5,7 +5,8 @@ from ghost_python_wrapper.ghost_wrapper import GhostWrapper #I don't like this l
 def test_always_passes():
     assert True
 
-def test_ghost_wrapper_creates_properly():
+@patch('ghost_python_wrapper.ghost_wrapper.GhostWrapper.basic_auth')
+def test_ghost_wrapper_creates_properly(mock_auth):
     new_ghost = GhostWrapper("http://localhost", "v5.0", "jimmy", "qwerty123")
     assert new_ghost.host == "http://localhost"
     assert new_ghost.version == "v5.0"
@@ -16,4 +17,4 @@ def test_ghost_wrapper_creates_properly():
 def test_ghost_wrapper_calls_basic_auth(mock_auth):
     GhostWrapper("http://localhost", "v5.0", "jimmy", "qwerty123") #maybe make a fixture here
     assert mock_auth.called
-    
+
