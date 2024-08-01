@@ -9,7 +9,7 @@ class GhostWrapper:
 
         self.session_token = self.basic_auth()
     
-    def basic_auth(self):
+    def basic_auth(self) -> str:
         r = requests.post(self.host, data={"username" : self.username, "password" : self.password})
         if r.status_code != 201:
             raise Exception("Could not establish a session.")
