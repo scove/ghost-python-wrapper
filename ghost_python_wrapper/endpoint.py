@@ -7,11 +7,10 @@ class Endpoint():
     def __init__(self, host: str, end_point: str, session: GhostSession):
         self.end_point = end_point
         self.full_path = host + end_point
-        self.session = session.session_token
+        self.session = session.session_cookie
         self.version = session.version
     
     def get(self):
-        headers = {"Authorization": f"Ghost [{self.session}]"}
-        r = requests.get(self.full_path, headers=headers)
+        r = requests.get(self.full_path, cookies=self.session)
         print(r.status_code)
         print(r.content)
