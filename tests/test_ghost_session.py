@@ -46,4 +46,4 @@ def test_basic_auth_should_return_proper_cookie(mock_post, mock_jar):
     mock_object = Mock(host='localhost', username='jimmy', password="qwerty123")
     mock_post.return_value = Mock(status_code=201, cookies={'ghost-admin-api-session': "I am a cookie, hello"})
     mock_jar.return_value = {'ghost-admin-api-session': "I am a cookie, hello"}
-    assert GhostSession.basic_auth(mock_object) == "I am a cookie, hello"
+    assert GhostSession.basic_auth(mock_object) == {'ghost-admin-api-session': "I am a cookie, hello"}
