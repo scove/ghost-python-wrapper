@@ -1,6 +1,6 @@
 import requests
 
-from ghost_session import GhostSession
+from ghost_python_wrapper.ghost_session import GhostSession
 
 
 class Endpoint():
